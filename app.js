@@ -18,18 +18,26 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res) {
-  res.render("home", {startingContent: homeStartingContent})
+  res.render("home", {homeContent: homeStartingContent})
   
 })
 
 app.get("/about", function(req, res) {
-  res.render("about", {startingContent: aboutContent})
+  res.render("about", {aboutContent: aboutContent})
 })
 
 app.get("/contact", function(req, res) {
-  res.render("contact", {startingContent: contactContent})
+  res.render("contact", {contactContent: contactContent})
 })
 
+app.get("/compose", function(req, res) {
+  res.render("compose")
+})
+
+app.post("/compose", function(req, res) {
+  let newPost = req.body.postTitle
+  console.log(newPost)
+})
 
 
 
